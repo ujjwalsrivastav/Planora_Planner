@@ -1,0 +1,88 @@
+.wrap {
+  max-width: 40rem;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: rgba(19, 17, 39, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form:focus-within {
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.35);
+}
+
+/* The input's focus ring is drawn around the whole form, so it reads as one field. */
+.form:has(.input:focus-visible) {
+  outline: none;
+}
+
+.input {
+  flex: 1 1 18rem;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 0.9rem;
+  border: 0;
+  background: transparent;
+  color: var(--diya);
+  font-size: 1.0625rem;
+}
+
+.input::placeholder {
+  color: var(--muted-on-night);
+}
+
+.input:focus-visible {
+  outline: none; /* replaced by the form's ring above */
+}
+
+.types {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  color: var(--muted-on-night);
+}
+
+.types span {
+  margin-right: 0.25rem;
+}
+
+.types a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  color: var(--diya);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: all 0.2s var(--ease-out);
+}
+
+.types a:hover {
+  border-color: rgba(99, 102, 241, 0.8);
+  background: rgba(99, 102, 241, 0.12);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+@media (max-width: 600px) {
+  .form > button {
+    flex: 1 1 100%;
+  }
+}

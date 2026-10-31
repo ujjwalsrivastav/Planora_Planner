@@ -1,0 +1,52 @@
+import type { Metadata, Viewport } from "next";
+import { Inter, Outfit } from "next/font/google";
+import { connection } from "next/server";
+import { siteUrl } from "@/lib/site";
+import "./globals.css";
+
+const display = Outfit({
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+});
+
+const body = Inter({
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+
+const description =
+  "Plan weddings, birthdays and community events with Gemini: budgets, timelines, vendor checklists and personalized ideas from one sentence.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: { default: "Planora AI Planner: AI celebration & event planner", template: "%s · Planora AI Planner" },
+  description,
+  applicationName: "Planora AI Planner",
+  openGraph: {
+    type: "website",
+    siteName: "Planora AI Planner",
+    title: "Planora AI Planner: every celebration, beautifully choreographed",
+    description,
+    locale: "en_IN",
+  },
+  twitter: { card: "summary_large_image" },
+};
+
+export const viewport: Viewport = { themeColor: "#0F0D24" };
+
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  // Render per request so Next.js can stamp the CSP nonce from src/proxy.ts onto its scripts.
+  await connection();
+  return (
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <body>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        {children}
+      </body>
+    </html>
+  );
+}

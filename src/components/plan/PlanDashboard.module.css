@@ -1,0 +1,52 @@
+/* Plan dashboard: page layout, tab panel and empty states. */
+
+.page {
+  padding-block: clamp(2rem, 4vw, 3rem) 5rem;
+}
+
+.empty {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  max-width: 40rem;
+  padding-block: 5rem;
+}
+
+.emptyTitle {
+  font-family: var(--font-display-stack);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.workspace {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.main {
+  flex: 999 1 38rem;
+  min-width: 0;
+}
+
+.panel {
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-sm), 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
