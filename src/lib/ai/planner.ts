@@ -8,7 +8,7 @@ import type { Planner } from "./types";
  * 3.5 Flash leads because it drafts a full plan in about 15 s; in testing (Oct 2026) 3.8 Flash
  * often took longer than the whole request budget. Override the chain with GEMINI_MODEL.
  */
-export const DEFAULT_MODELS = ["gemini-3.5-flash", "gemini-flash-lite-latest"];
+export const DEFAULT_MODELS = ["gemini-3.8-flash", "gemini-flash-lite-latest"];
 
 type Env = Record<string, string | undefined>;
 
